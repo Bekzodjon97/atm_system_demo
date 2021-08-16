@@ -12,6 +12,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -45,13 +46,16 @@ public class Card implements UserDetails{
     @Enumerated(EnumType.STRING)
     private CardType cardType;
 
+    @ManyToMany
+    private Set<Role> role;
+
     private boolean active=true;
 
     private double balance;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return role;
     }
 
     @Override
