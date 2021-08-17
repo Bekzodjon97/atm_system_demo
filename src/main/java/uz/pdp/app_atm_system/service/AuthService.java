@@ -15,6 +15,7 @@ import uz.pdp.app_atm_system.payload.ApiResponse;
 import uz.pdp.app_atm_system.payload.LoginDto;
 import uz.pdp.app_atm_system.repository.CardRepository;
 import uz.pdp.app_atm_system.repository.UsersRepository;
+import uz.pdp.app_atm_system.security.JwtProvider;
 
 @Service
 public class AuthService implements UserDetailsService {

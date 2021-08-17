@@ -1,4 +1,4 @@
-package uz.pdp.app_atm_system.service;
+package uz.pdp.app_atm_system.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+import uz.pdp.app_atm_system.service.AuthService;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

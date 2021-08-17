@@ -16,8 +16,8 @@ public class TransferDto {
     @NotNull
     private Integer bankomatId;
 
-    @ManyToOne
-    private Card toCard;
+
+    private Integer toCardId;
 
 
     private Integer mingSum;

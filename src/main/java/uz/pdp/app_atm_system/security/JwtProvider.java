@@ -1,4 +1,4 @@
-package uz.pdp.app_atm_system.service;
+package uz.pdp.app_atm_system.security;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

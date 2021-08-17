@@ -42,18 +42,18 @@ public class ATMOperationService {
 
 
 
-    public ApiResponse comeInSystem(LoginDto loginDto) {
-        Optional<Card> optionalCard = cardRepository.findByCardNumber(loginDto.getUsername());
-        Card card = optionalCard.get();
-        if (card.getPassword().equals(loginDto.getPassword())&&card.isActive()){
-            String stt=card.getCardNumber()+":"+card.getPassword();
-            byte[] bytes = stt.getBytes(StandardCharsets.UTF_8);
-            byte[] encode = Base64.getEncoder().encode(bytes);
-            String str=new String(encode);
-            return new ApiResponse("Basic code",true,str);
-        }
-        return new ApiResponse("Pin Code xato", false);
-    }
+//    public ApiResponse comeInSystem(LoginDto loginDto) {
+//        Optional<Card> optionalCard = cardRepository.findByCardNumber(loginDto.getUsername());
+//        Card card = optionalCard.get();
+//        if (card.getPassword().equals(loginDto.getPassword())&&card.isActive()){
+//            String stt=card.getCardNumber()+":"+card.getPassword();
+//            byte[] bytes = stt.getBytes(StandardCharsets.UTF_8);
+//            byte[] encode = Base64.getEncoder().encode(bytes);
+//            String str=new String(encode);
+//            return new ApiResponse("Basic code",true,str);
+//        }
+//        return new ApiResponse("Pin Code xato", false);
+//    }
 
     @Transactional
     public ApiResponse withdrawMoney(TransferDto transferDto) {
@@ -290,7 +290,7 @@ public class ATMOperationService {
         Bankomat bankomat = optionalBankomat.get();
         if (cardInSystem.getBalance()>=transferDto.getAmount()+transferDto.getAmount()*(bankomat.getCommissionFreOnTransfer()/100)){
            cardInSystem.setBalance(cardInSystem.getBalance()-(transferDto.getAmount()+transferDto.getAmount()*(bankomat.getCommissionFreOnTransfer()/100)));
-            Optional<Card> optionalCard = cardRepository.findById(transferDto.getToCard().getId());
+            Optional<Card> optionalCard = cardRepository.findById(transferDto.getToCardId());
             if (optionalCard.isPresent()) {
                 Card card = optionalCard.get();
                 card.setBalance(card.getBalance()+transferDto.getAmount());

@@ -15,7 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import uz.pdp.app_atm_system.service.AuthService;
-import uz.pdp.app_atm_system.service.JwtFilter;
+import uz.pdp.app_atm_system.security.JwtFilter;
 
 import java.util.Properties;
 
